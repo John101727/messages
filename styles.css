@@ -3,12 +3,25 @@ body, html {
     padding: 0;
     height: 100%;
     background-image: url('bg.jpg');  /* Replace 'bg.jpg' with your image file name */
-    background-size: 100%; /* Ensures the image covers the entire screen */
-    background-position: center; /* Centers the image */
+    background-size: cover; /* Ensure the background image covers the entire screen */
+    background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Make the body the reference for absolute positioning */
+}
+
+/* Center the audio player */
+.audio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;  /* Ensures it appears above other elements */
 }
 
 @media (max-width: 768px) {  /* Adjust the maximum width as needed for mobile */
@@ -145,16 +158,21 @@ body, html {
 }
 
 /* Button styling */
-button {
+#showPaperBtn {
     background-color: #db2342;
     color: white;
-    padding: 5px 5px;
-    border: none;
+    padding: 10px 20px;
     font-size: 16px;
+    border: none;
     cursor: pointer;
-    z-index: 30;  /* Ensure button stays above paper */
+    z-index: 30;
+    position: relative;
     margin-right: 15px;
+    
+    /* Create a left-pointing arrow shape */
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 20% 100%, 0% 50%);
 }
+
 
 button:hover {
     background-color: #b35b6b;

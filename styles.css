@@ -1,0 +1,177 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('bg.jpg');  /* Replace 'bg.jpg' with your image file name */
+    background-size: 100%; /* Ensures the image covers the entire screen */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {  /* Adjust the maximum width as needed for mobile */
+    body, html {
+        background-size: cover;  /* Ensure the image still covers the background area */
+    }
+}
+
+/* Style for the girl image */
+#girl-image {
+    position: fixed;
+    bottom: 10%;  /* Places it at the bottom */
+    left: 50%;  /* Centers the image horizontally */
+    transform: translateX(-50%);  /* Ensures it is perfectly centered */
+    width: 250px;  /* Adjust the size of the image as needed */
+    height: auto;  /* Maintain aspect ratio */
+    z-index: 5;  /* Ensure it is above other content */
+}
+
+
+.message-container {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 10);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    z-index: 10;  /* Make sure the message appears above clouds */
+}
+
+.cloud-container {
+    position: relative;
+    width: 100vw;  /* Full width */
+    height: 100vh; /* Full height */
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    width: 200px;
+    height: auto;
+}
+
+.top-cloud {
+    top: 1%; /* Position the first cloud near the top */
+    animation: moveCloud 120s linear infinite;
+}
+
+.top2-cloud {
+    top: 2%; /* Position the first cloud near the top */
+    animation: moveCloud2 80s linear infinite;
+}
+
+.bottom-cloud {
+    bottom: 90%; /* Position the second cloud at the bottom */
+    animation: moveCloudBottom 90s linear infinite; /* Different animation time for bottom cloud */
+}
+
+.left-cloud {
+    bottom: 85%; /* Position the second cloud at the bottom */
+    animation: moveCloudLeft 60s linear infinite; /* Different animation time for bottom cloud */
+}
+
+.left2-cloud {
+    bottom: 80%; /* Position the second cloud at the bottom */
+    animation: moveCloud2Left 60s linear infinite; /* Different animation time for bottom cloud */
+}
+
+@keyframes moveCloud2 {
+    0% {
+        left: -100px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes moveCloud {
+    0% {
+        left: -1000px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+
+
+@keyframes moveCloudBottom {
+    0% {
+        left: -250px; /* Start off-screen to the left */
+    }
+    100% {
+        left: 100%; /* Move to the right off-screen */
+    }
+}
+
+@keyframes moveCloudLeft {
+    0% {
+        right: -250px; /* Start off-screen to the left */
+    }
+    100% {
+        right: 100%; /* Move to the right off-screen */
+    }
+}
+
+@keyframes moveCloud2Left {
+    0% {
+        right: -1000px; /* Start off-screen to the left */
+    }
+    100% {
+        right: 100%; /* Move to the right off-screen */
+    }
+}
+
+/* Initial state of the paper - hidden off-screen */
+.paper {
+    position: fixed;
+    top: 25%;
+    left: -100%;  /* Start off-screen */
+    width: 100%;
+    max-width: 600px;  /* Set a max width for larger screens */
+    height: auto;  /* Adjust height automatically */
+    background: #e7cbcb;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.5s ease;  /* Smooth transition */
+    z-index: 20;  /* Make sure it's on top of other elements */
+    box-sizing: border-box;  /* Ensure padding doesn't affect width */
+}
+
+/* Active state of the paper - slide in */
+.paper.show {
+    left: 0;  /* Bring the paper into view */
+}
+
+/* Button styling */
+button {
+    background-color: #db2342;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 30;  /* Ensure button stays above paper */
+    margin-right: 15px;
+}
+
+button:hover {
+    background-color: #b35b6b;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .paper {
+        padding: 15px;  /* Less padding for smaller screens */
+        top: 20%;  /* Adjust top position for smaller screens */
+    }
+
+    button {
+        font-size: 14px;  /* Adjust button size */
+    }
+}
+
+p {
+margin-right: 15px;
+}
